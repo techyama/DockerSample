@@ -1,4 +1,0 @@
-「Hello wolrd!」を出力するDockerImageの作成
-1.echo "Hello world!" > hello.txt
-2.Dockerfileを作成
-3.docker build -t hello .

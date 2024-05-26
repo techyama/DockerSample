@@ -1,0 +1,17 @@
+「Hello wolrd!」を出力するDockerImageの作成
+1.echo "Hello world!" > hello.txt
+2.Dockerfileを作成
+3.docker build -t hello .
+  dockerbuildを実行したカレントディレクトリ直下のDockerfileでビルドをする。
+  「-t hello」はhelloという名前でDockerImageを作成する意味。
+  「.」はCOPYコマンドを実行する際の起点となるディレクトリの指定。
+4.docker run helloで作成したイメージを実行
+5.docker loginでDockerHubにログイン
+6.docker tag hello yamamotoikkitech232/helloでDocker Imageの命名
+  DockerHubの命名規則
+    <USER NAME>/<IMAGE NAME>:<TAG>
+    (TAGは省略可。省略するとデフォルトで「:latest」と命名される)
+7.docker push yamamotoikkitech232/helloでDockerHubへプッシュ
+8.docker image prune -aでローカルのImageを削除
+  同名のImageが存在する場合、DockerHubを参照せずローカルを参照してしまうため
+9.docker pull yamamotoikkitech232/helloでDockerHubからローカルへイメージをプル
