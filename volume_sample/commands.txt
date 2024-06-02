@@ -1,0 +1,14 @@
+コンテナの外側であるvolumeにファイルを出力
+docker run -v /tmp/text ubuntu touch /tmp/text/hogefugapiyo
+
+volume情報の取得
+docker volume ls
+
+volumeの名前を指定して詳細情報取得
+docker volume inspect <VOLUME NAME>
+
+上記のコマンドで取得したMountpointにアクセスしてみると、コンテナ停止後もファイルが確認できることが分かる。
+ls -l <Mountpoint>
+
+他のコンテナを参照する
+docker run --volumes-from <CONTAINER>

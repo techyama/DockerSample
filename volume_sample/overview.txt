@@ -1,0 +1,21 @@
+Volumeとは、データを永続化するための機能。
+
+container上で作成されたファイルは、containerのライフサイクルの終了と共に消えてしまう。
+Volumeを使えば、containerのライフサイクルとは独立してファイルの管理ができる。
+
+Volumeの種類
+・Data Volume
+    Docker Containerのライフサイクルの外で管理されるファイルやディレクトリの設定。
+        オプション
+        ・-v <CONTAINER PATH>
+            containerの外側でファイルを管理する
+
+        ・-v <HOST PATH>:<CONTAINER PATH>
+            ホストのパスをcontainerのパスと共有する
+            ホストのコードをcontainerに同期させて動作確認でき、デバッグ時に便利
+
+・Data Volume Container
+    他のcontainerで指定されているVolumeを参照する
+        オプション
+        ・--volumes-from <CONTAINER>
+            コンテナ間でVolumeの共有ができる
