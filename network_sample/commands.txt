@@ -1,0 +1,13 @@
+存在するネットワークの確認
+docker network ls
+
+新しいネットワークの作成
+docker network create myapp
+
+作成したネットワークへnginxを参加させる
+docker run --name nginx --network=myapp -d nginx
+
+AmazonLinux2を起動し、nginxコンテナへ接続する
+docker run --network=myapp -it amazonlinux:2 curl nginx:80
+※bridgeネットワークの場合、同一ネットワークのコンテナには「nginx:80」のようにコンテナ名で名前解決できる
+

@@ -1,0 +1,15 @@
+Docker Containerは1コンテナで1プロセス動かす設計のため、複数プロセスを協調して動かす際にはソケットではなく、ネットワークで通信を行うことが推奨されている。
+
+主に使用されるツール
+・Kubernates
+・ECS
+・docker-compose
+
+ネットワークのふるまいを定義することができ、デフォルトで2種類のNetwork Driverがある。
+・bridge
+    基本的に使われるDriver。Linuxカーネルのbridgeネットワークを使用するための機能。
+    何も指定せずにcontainerを起動するとデフォルトである「docker0」という名前のbridgeネットワークに所属する。
+
+・host
+    ホストマシンのeth0を直接使用する方法。
+
