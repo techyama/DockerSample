@@ -1,0 +1,28 @@
+・コンテナはホストマシンとは隔離された環境で実行される
+・基本的に1コンテナ1プロセス
+・ライフサイクルは実行されたコマンドがフォアグラウンド上で実行されている間
+　（バックグラウンドでプロセスが起動しても、フォアグラウンドで実行が終了したらコンテナは停止する）
+
+
+コンテナの状態遷移
+1.Image
+    指定したDocker Image からDocker Containerを起動する。
+
+2.RUNNING
+    Docker Containerが起動した状態。
+    Dockerfileの CMD もしくは ENTRYPOINT で指定したコマンドがフォアグラウンドで動いている間がRUNNINGの状態。
+    例えば docker run -P nginx のようにnginxを起動した場合、nginxが起動してアクセスを待ち受けてる間はRUNNINGの状態となる
+
+3.STOPPED
+    起動したContainerが終了した状態。
+    正常終了・異常終了、どのような形であっても終了したContainerはSTOPPEDへ遷移する。
+
+4.PAUSED
+    Containerが停止した状態。
+    ユーザーが docker pause <CONTAINER ID> を実行すると、現在の状態を保持して一時停止する。
+    docker unpause <CONTAINER ID> で一時停止したコンテナIDを指定することで再開することが可能。
+    ユーザーが明示的に指定しない限りこの状態へは遷移しません。
+
+5.DELETED
+    Docker Container は明示的に削除を行わない限り停止した状態で残り続けます。
+    docker rm <CONTAINER ID> で明示的に削除するとDELETEDの状態へ遷移し、削除されます。
