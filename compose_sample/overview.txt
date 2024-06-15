@@ -1,0 +1,31 @@
+docker-composeはローカルでDockerのオーケストレーションを行うためのツール。
+DockerのビルドからNetworkやVolumeの管理をコードベースで定義することができる。
+
+・version
+docker-composeのバージョン定義。基本的には最新を記述。
+
+・services
+起動するコンテナの定義。
+一つのserviceにはimageもしくはbuildのどちらか必要。
+
+・image
+コンテナを起動するDocker Imageの指定
+
+・build
+docker buildの実行情報を記述。
+
+・volumes
+volumeのマウントを行う。
+
+・ports
+ポートの開放を行う。
+左にホスト、右にコンテナのポートを指定する。
+
+・environment
+起動するコンテナへ環境変数を定義する。
+
+・env_file
+ファイルに定義された環境変数を読み取り、コンテナへ定義
+
+・command
+Dockerfileで定義されているCMDの上書きを行う。

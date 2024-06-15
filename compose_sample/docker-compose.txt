@@ -1,0 +1,10 @@
+# docker run -p 8080:80 nginxとほぼ同じ動き。
+# docker-composeで専用のNetworkを作成・使用する
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 8080:80
+

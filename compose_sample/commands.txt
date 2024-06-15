@@ -1,0 +1,10 @@
+・$ docker-compose up
+カレントディレクトリに存在するdocker-compose.ymlを参照して起動
+
+・$ docker-compose down
+カレントディレクトリのdocker-compose.ymlに紐づいているContainerとNetworkを削除
+イメージも削除する場合
+$ docker-compose down --rmi all
+
+・$ docker-compose rm
+Volumeを削除
